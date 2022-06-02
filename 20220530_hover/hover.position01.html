@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .container{width: 1000px;margin: 0 auto;}
+        .container.sec1 li{float:left;width: calc( ( 100% - 20px *3) / 4 );margin-right: 20px;border-radius: 5px;overflow: hidden;position: relative;}
+        .container.sec1 li:last-child{margin-right: 0;}
+        .container.sec1 img{width: 100%;transition: 0.3s;}
+        
+        .container.sec1 li:hover img{transform: scale(1.2);}
+
+        .container.sec1 li:hover .overlay1{left: 0;}
+        .container.sec1 .overlay1{position: absolute;left: -200px;top: 0;width: 100%;height: 100%;background-color: rgba(255, 0, 0, 0.3);display: flex;justify-content: center;align-items: center;}
+        .container.sec1 .overlay1 a{display: flex;height: 100%; color: white;justify-content: center;align-items: center;}
+
+        .container.sec1 li:hover .overlay2{top: 0;}
+        .container.sec1 .overlay2{position: absolute;left: 0;top: -200px;width: 100%;height: 100%;background-color: rgba(0, 255, 0, 0.3);display: flex;justify-content: center;align-items: center;}
+        .container.sec1 .overlay2 a{display: flex;height: 100%; color: white;justify-content: center;align-items: center;}
+
+        .container.sec1 li:hover .overlay3{left: 0;}
+        .container.sec1 .overlay3{position: absolute;right: -200px;top: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 255, 0.3);display: flex;justify-content: center;align-items: center;}
+        .container.sec1 .overlay3 a{display: flex;height: 100%; color: white;justify-content: center;align-items: center;}
+
+        .container.sec1 li:hover .overlay4{bottom: 0;}
+        .container.sec1 .overlay4{position: absolute;left: 0px;bottom: -200px;width: 100%;height: 100%;background-color: rgba(0, 255, 255, 0.3);display: flex;justify-content: center;align-items: center;}
+        .container.sec1 .overlay4 a{display: flex;height: 100%; color: white;justify-content: center;align-items: center;}
+       
+
+
+    </style>
+</head>
+<body>
+    <div class="container sec1">
+        <ul class="clearfix">
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay1">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay1">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay1">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay1">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="container sec1">
+        <ul class="clearfix">
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay2">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay2">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay2">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay2">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="container sec1">
+        <ul class="clearfix">
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay3">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay3">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay3">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay3">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="container sec1">
+        <ul class="clearfix">
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay4">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay4">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay4">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+            <li>
+                <img src="../images/testimg.jpg" alt="">
+                <div class="overlay4">
+                    <a href="">프랑스</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
