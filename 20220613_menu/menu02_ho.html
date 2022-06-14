@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .navWrap{background-color: #eee;}
+        .navbar{width: 1000px;margin: 0 auto;}
+        .navbar>ul>li{float: left;width: 200px;height: 40px;position: relative;}
+        .navbar>ul>li:hover{background-color: #ddd;}
+        .navbar>ul>li>a{display: flex;height: 100%;justify-content: center;align-items: center;}
+
+        .submenu{display: none;position: absolute;left: 100px;}
+        .navbar>ul>li:first-child .submenu{display: block;}
+        .submenu li{float: left;background-color: pink;}
+    </style>
+</head>
+<body>
+    <div class="navWrap">
+        <div class="navbar">
+            <ul class="clearfix">
+                <li><a href="">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">menu1</a>
+                    <div class="submenu">
+                        <ul class="clearfix">
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                            <li><a href="">s01_01</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
