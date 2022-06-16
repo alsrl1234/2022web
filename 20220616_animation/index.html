@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        /* body가 block단위 여서 높이값을 100%주어야 align-items가 적용이 된다. */
+        html,body{height: 100%;background-color: black;} 
+        body{display: flex;justify-content: center;align-items: center;}
+        .box{width: 100px;height: 100px;background-color: red;
+            animation-name: ani;
+            animation-duration: 3s;
+            animation-fill-mode:forwards;
+            animation-iteration-count: 2;
+            animation-timing-function: linear;
+
+
+        }
+
+        /* @keyframes ani {
+            from{margin-left: 0;}
+            to{margin-left: 100px;}
+        } */
+
+        @keyframes ani{
+            0{transform: translateY(0) rotate(0);}
+            50%{transform: translateY(-100px) rotate(90deg);opacity:1}
+            100%{transform: translateY(0) rotate(0);}
+        }
+
+        .scroll{width: 100px;height: 200px;border: 5px solid white;position: absolute;bottom: 20px;border-radius: 50px;}
+        .scroll::after{content: "";display: block;width: 50px;height: 50px;background-color: white;border-radius: 25px;position: absolute;left:50%;margin-left: -25px;top: 20px;
+        animation-name: circle;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    
+        }
+
+        @keyframes circle{
+            0{top: 20px;opacity: 1;}
+            80%{top: 40px;opacity: 1;}
+            100%{top: 50px;opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="scroll"></div>
+</body>
+</html>
