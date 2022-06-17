@@ -1,0 +1,7 @@
+@charset "utf-8";
+html,body{height: 100%;}
+body{display: flex;justify-content: center;align-items: center;}
+.secWrap{width: 1000px;margin: 0 auto;}
+.secWrap ul{display: flex;justify-content: space-between;}
+.secWrap ul li{width: calc( ( 100% - 45px ) / 4 );}
+.secWrap ul img{width: 100%;}
