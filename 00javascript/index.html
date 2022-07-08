@@ -7,6 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="box" onclick="alert('경고')">0</div>
+    <div id="box" onclick="alert('경고')"></div>
+    <div class="min">0</div>
+    <div>
+        
+    </div>
+    <script>
+        // let i=10;
+        // if(i==10){document.write("확인");}
+
+        
+        // for(x=1;x<101;x++){
+        //     let sum = 0;
+        //     sum = sum + x ;
+        //     document.write(sum+"<br>");
+        // }
+        // document.write(sum);
+        let kim = ""
+        let min = [100,200,300,400,500,600]
+        for(i=0;i<min.length;i++){
+
+            kim += "<li>1</li>"
+            console.log(kim);
+        }
+        
+        document.querySelector(".min").innerHTML = kim
+        </script>
 </body>
 </html>

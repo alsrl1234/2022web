@@ -1,0 +1,1 @@
+document.getElementsByClassName("box")[0].innerText = "안녕하세요.";
