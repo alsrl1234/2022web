@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text"class="inp">
+    <button class="btn1">입력</button>
+    <ul class="listView">
+
+    </ul>
+    <button class="delAll">전체삭제</button>
+
+
+    <script>
+        let listData = [];
+
+        const inp = document.querySelector(".inp")
+        const btn1 = document.querySelector(".btn1")
+        const listView = document.querySelector(".listView")
+        const delAll = document.querySelector(".delAll")
+
+        btn1.addEventListener("click",function(){
+            listData.push(inp.value);
+            console.log(listData)
+        })
+    </script>
+
+</body>
+</html>

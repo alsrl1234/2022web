@@ -1,0 +1,42 @@
+@charset "utf-8";
+/********** css responsive init **********/
+body{background-color: skyblue;}
+.container{width: 1200px;background-color: pink;margin: 0  auto;display: flex;padding: 16px 16px;}
+
+.topMenu{margin-left: auto;display: flex;}
+
+.topNav{display: flex;}
+.topNav a{display: flex;align-items: center;padding: 0 20px;}
+.topNav a:hover{background-color: aquamarine;}
+.topNav a i{margin-right: 5px;}
+
+
+.toggleMenu{width: 43px;background-color: white;display: none;}
+
+/********** css responsive **********/
+@media (max-width: 1399px) {
+    body{background-color: orange;}
+}
+
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+    body,html{width: 100%;height: 100%;}
+    body{background-color: rgb(112, 218, 182);position: relative;}
+    .toggleMenu{display: block;height: 43px;position: absolute;right: 20px;}
+    
+    
+
+    .topMenu{position: absolute; left: 100%;top: -100%;transition: 0.3s;}
+    .topMenu.active{position: absolute;background-color: skyblue;width: 100%;height: 100%;top: 0;left: 0;transition: 0.3s;display: block;}
+    .topNav{display: block;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+    .topNav a{padding: 20px;}
+    .topNav a:hover{background:none;}
+}
+
+@media (max-width: 575px) {
+}

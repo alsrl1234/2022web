@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;height: 100px;background-color: #f00;
+            /* position: absolute; */
+
+        }
+    </style>
+</head>
+<body>
+    <button class="btn1">이동</button>
+    <button >이동</button>
+    <div class="box"></div>
+    <script>
+        const boxElem =document.querySelector(".box");
+        const btnElem = document.querySelector(".btn1");
+
+
+        btnElem.addEventListener("click",function(){
+            boxElem.style.marginLeft = "30px";
+           boxElem.innerHTML = "홍길도";
+           boxElem.style.backgroundColor = "gold" 
+        })
+        //moveBox(100,"홍길동","skyblue")
+
+        function moveBox(move,name,color){
+            console.log(move)
+           boxElem.style.marginLeft = move + "px";
+           boxElem.innerHTML = name;
+           boxElem.style.backgroundColor = color
+           
+
+        }
+    </script>
+</body>
+</html>
