@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab02</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    .wrap ul{display: flex;}
+    .wrap li{width: 100px;height: 50px;border: 1px solid #000;text-align: center;line-height: 50px;}
+    .wrap li.active{background-color: #333;color: white;}
+    .content div{width: 500px;border: 1px solid #000;text-align: center; display: none;padding: 30px;}
+    .content div:nth-child(1){display: block;}
+    
+</style>
+<body>
+    <div class="wrap">
+        <ul class="menu">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </ul>
+        <div class="content">
+            <div>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum odio laudantium perspiciatis. Qui laborum rerum soluta eos numquam labore voluptates mollitia nobis, non repellendus saepe, earum odio quia consectetur.</div>
+            <div>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum odio laudantium perspiciatis. Qui laborum rerum soluta eos numquam labore voluptates mollitia nobis, non repellendus saepe, earum odio quia consectetur.</div>
+            <div>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum odio laudantium perspiciatis. Qui laborum rerum soluta eos numquam labore voluptates mollitia nobis, non repellendus saepe, earum odio quia consectetur.</div>
+            <div>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum odio laudantium perspiciatis. Qui laborum rerum soluta eos numquam labore voluptates mollitia nobis, non repellendus saepe, earum odio quia consectetur.</div>
+        </div>
+    </div>
+    <script>
+        $(".menu li").click(function(){
+        let i = $(this).index()
+                $(".menu li").removeClass("active")
+                $(this).addClass("active")
+
+                $(".content div").hide()
+                $(".content div").eq(i).show()
+            
+            
+    })
+    </script>
+<script src="js/script.js"></script>
+</body>
+</html>

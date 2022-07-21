@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tap_ex</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tap li {
+            width: 100px;
+            height: 50px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 50px;
+        }
+        .tap li.active{background-color: #333;color: white;}
+
+        .tap ul {
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .content {
+            border: 1px solid #000;
+            width: 500px;
+            padding: 20px;
+        }
+        .content div{display: none;}
+        .content div:nth-child(1){display: block;}
+        
+    </style>
+</head>
+
+<body>
+    <div class="tap">
+        <ul>
+            <li>tap1</li>
+            <li>tap2</li>
+            <li>tap3</li>
+            <li>tap3</li>
+        </ul>
+        <div class="content">
+            <div>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime ipsam minus quibusdam nam
+                dolore nisi neque temporibus, non, nostrum ut dolorum libero voluptate at eum voluptatibus officiis
+                saepe incidunt.</div>
+            <div>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime ipsam minus quibusdam nam dolore nisi neque temporibus, non, nostrum ut dolorum libero voluptate at eum voluptatibus officiis saepe incidunt.</div>
+            <div>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime ipsam minus quibusdam nam dolore nisi neque temporibus, non, nostrum ut dolorum libero voluptate at eum voluptatibus officiis saepe incidunt.</div>
+             <div>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime ipsam minus quibusdam nam dolore nisi neque temporibus, non, nostrum ut dolorum libero voluptate at eum voluptatibus officiis saepe incidunt.</div>
+        </div>
+    </div>
+    <script>
+         for(let i=0;i<4;i++){
+        $(".tap li").eq(i).click(function(){
+
+            $(".tap li").removeClass("active");
+            $(".tap li").eq(i).addClass("active");
+
+            $(".content div").hide()
+            $(".content div").eq(i).show()
+        })
+    }
+    </script>
+</body>
+
+</html>
