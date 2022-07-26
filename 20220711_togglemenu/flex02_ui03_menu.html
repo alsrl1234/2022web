@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex02_ui03_menu</title>
+    <link rel="stylesheet" href="css/reset.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body{background-color: skyblue;}
+        #header{background: white;position: absolute;width: 100%;}
+        .container{width: 1200px;margin: 0 auto;}
+        .hdWrap{display: flex;padding: 16px 0;}
+        .navWrap{width: 600px;margin-left: auto;}
+        .navWrap>ul{display: flex;height: 100%;}
+        .navWrap>ul>li{flex:1 1 auto;height: 100%;}
+        .navWrap>ul>li>a{background-color: pink;display: flex;justify-content: center;align-items: center;height: 100%;}
+        .bg{width: 100%;height: 300px;background-color: dodgerblue;}
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container hdWrap">
+            <h1><a href="">LOGO</a></h1>
+            <div class="navWrap">
+                <ul>
+                    <li><a href="">menu1</a></li>
+                    <li><a href="">menu1</a></li>
+                    <li><a href="">menu1</a></li>
+                    <li><a href="">menu1</a></li>
+                    <li><a href="">menu1</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </header>
+    <script>
+        $(".bg").slideUp()
+        $(".navWrap").hover(function(){
+            $(".bg").stop().slideDown()
+            
+        },function(){
+            $(".bg").stop().slideUp()
+        })
+    </script>
+</body>
+</html>
