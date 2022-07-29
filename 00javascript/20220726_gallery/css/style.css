@@ -1,0 +1,14 @@
+@charset "utf-8";
+#gallery{width: 824px;margin: 0 auto;}
+#image{width: 760px;margin: 0 auto;margin-bottom: 10px;}
+#image > p{display: none;}
+#thumbnail{display: flex;}
+.container{width: 760px;overflow: hidden;}
+
+
+
+.left,.right{width: 32px;display: flex;justify-content: center;align-items: center;cursor: pointer;}
+.itemWrap{width: 2280px;position: relative;transition: .3s;left: 0;}
+.itemWrap li{float: left;margin-right: 8px;cursor: pointer;}
+.itemWrap li:nth-child(6),.itemWrap li:nth-child(12),.itemWrap li:nth-child(18)
+{margin-right: 0px;}

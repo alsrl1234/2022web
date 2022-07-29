@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exex</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        html,body{height: 100%;}
+        li{list-style: none;}
+        .Wrap{width: 1920px;height: 1080px;background-color: skyblue;margin: 0 auto;}
+        .Wrap h1{width: 100px; margin: 0 auto;}
+        a:visited,a:link{text-decoration: none;color: #333;}
+        .tabMenu{margin: 0 auto;}
+        .tabMenu ul{display: flex;width: 400px;height: 50px;margin: 0 auto ;}
+        .tabMenu ul>li{flex-grow: 1;flex-basis: 25%;border: 1px solid #000;text-align: center;line-height: 50px;cursor: pointer;}
+        
+        .tabMenu div{width: 1920px;height: 200px;border: 1px solid #000;text-align: center;line-height: 200px;display: none;}
+    </style>
+</head>
+<body>
+    <div class="Wrap">
+        <h1>LOGO</h1>
+        <div class="tabMenu">
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+                <li>menu4</li>
+            </ul>
+            <div>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit cum? Quaerat doloremque eaque provident neque non. Pariatur molestias, molestiae quaerat repellat sit beatae alias voluptate hic omnis. Ipsum, nulla!</div>
+            <div>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit cum? Quaerat doloremque eaque provident neque non. Pariatur molestias, molestiae quaerat repellat sit beatae alias voluptate hic omnis. Ipsum, nulla!</div>
+            <div>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit cum? Quaerat doloremque eaque provident neque non. Pariatur molestias, molestiae quaerat repellat sit beatae alias voluptate hic omnis. Ipsum, nulla!</div>
+            <div>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, velit cum? Quaerat doloremque eaque provident neque non. Pariatur molestias, molestiae quaerat repellat sit beatae alias voluptate hic omnis. Ipsum, nulla!</div>
+        </div>
+    </div>
+
+
+<script>
+     
+    $(".tabMenu li").hover(function(){
+        let i = $(this).index()
+        $(".tabMenu li").css("background","initial")
+        $(this).css("background","pink");
+        $(".tabMenu div").hide();
+        $(".tabMenu div").eq(i).show();
+        $(".tabMenu li").hover().stop()
+    })
+    $(".tabMenu li").click(function(){
+        $(".tabMenu li").css("background","initial")
+        $(this).css("background","pink");
+        $(".tabMenu div").slideup();
+    })
+</script>
+</body>
+</html>
