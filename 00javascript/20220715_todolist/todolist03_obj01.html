@@ -56,23 +56,23 @@
         listData.forEach(function(item,i){
             //viewList += `<li>${item.todo}</li>`
             viewList += `<li>`;
-               
-
-            if( listData[i].done == true){
-                viewList += `<div class="item active"  onclick="done(${i})">${listData[i].todo}</div>`
-            }else{
-                viewList += `<div class="item"  onclick="done(${i})">${listData[i].todo}</div>`
-            }
-                               
-            viewList +=  `<div class="iconWrap">
-                                <i class="fa-solid fa-trash" onclick=""></i>
-                                <i class="fa-solid fa-disease" onclick=""></i>`;
-
-            if( listData[i].done == true){
-                viewList += `<i class="fa-solid fa-circle-check" onclick="done(${i})"></i>`; 
-            }else{
-                viewList += `<i class="fa-solid fa-power-off" onclick="done(${i})"></i>`; 
-            }
+                
+                if( listData[i].done == true){
+                    viewList += `<div class="item active"  onclick="done(${i})">${listData[i].todo}</div>`
+                }else{
+                    viewList += `<div class="item"  onclick="done(${i})">${listData[i].todo}</div>`
+                }
+                
+                viewList +=  `<div class="iconWrap">
+                    <i class="fa-solid fa-trash" onclick=""></i>
+                    <i class="fa-solid fa-disease" onclick=""></i>`;
+                    
+                    if( listData[i].done == true){
+                        viewList += `<i class="fa-solid fa-circle-check" onclick="done(${i})"></i>`; 
+                    }else{
+                        viewList += `<i class="fa-solid fa-power-off" onclick="done(${i})"></i>`; 
+                    }
+                    console.log(i)
 
 
             viewList +=   `</div>
