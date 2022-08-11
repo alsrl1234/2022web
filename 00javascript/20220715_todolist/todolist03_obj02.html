@@ -82,10 +82,10 @@
         // view();
 
         function view(){
-            // if(localStorage.length > 0){
-            //     let localData = localStorage.getItem("todoData");
-            //     listData = JSON.parse(localData)
-            // }
+            if(localStorage.length > 0){
+                let localData = localStorage.getItem("todoData");
+                listData = JSON.parse(localData)
+            }
 
             todoData = '';
             listData.forEach(function(item,i){
@@ -118,8 +118,8 @@
         function del(idx){
             listData.splice(idx,1);
 
-            // let valueData = JSON.stringify(listData);
-            // localStorage.setItem("todoData",valueData);
+            let valueData = JSON.stringify(listData);
+            localStorage.setItem("todoData",valueData);
 
             view()
 
@@ -128,8 +128,8 @@
         function done(idx){
             listData[idx].done = !listData[idx].done;
 
-            // let valueData = JSON.stringify(listData);
-            // localStorage.setItem("todoData",valueData);
+            let valueData = JSON.stringify(listData);
+            localStorage.setItem("todoData",valueData);
 
             view()
         }
