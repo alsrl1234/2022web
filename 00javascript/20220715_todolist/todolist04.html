@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,108 +9,157 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <style>
-        .viewData{width: 400px;margin: 0 auto}
-        .viewData li{
-            position: relative;
-            height: 40px;
-            line-height: 40px;
-            margin-bottom: 2px;
-            cursor: pointer;
-        }
-        .viewData li .txt{padding: 0 16px;border-radius: 10px;}
-        .viewData li .txt.active{background: skyblue;}
-        .viewData .iconWrap{
-            display: flex;position: absolute;
-            gap:5px;right: 10px;top: 5px;
-        }
-        .viewData .iconWrap a{
-            width: 30px;height: 30px;
-            background: #000;
-            color:white;border-radius: 50%;
-            display: flex;justify-content: center;
-            align-items: center;
-            line-height: 30px;
+        .inpWrap{display: flex;margin-bottom: 10px;}
+        .inp{width: 250px;height: 40px;margin-right: 10px;}
+        .btn1,.btn2{height: 40px;margin-right: 10px;}
+        .viewData {
+            width: 400px;
         }
 
-        .inpWrap{width: 400px;margin: 10px auto;display: flex;gap:5px}
-        .inpWrap input[type="text"]{flex-grow: 1;text-indent: 10px;}
-        .inpWrap .btn1{width:100px;height: 40px;}
+        .viewData li {
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .txt {
+            padding: 0 10px;
+            line-height: 40px;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        .txt.acive {
+            background-color: skyblue;
+        }
+
+        .inconWrap {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        .inconWrap {
+            display: flex;
+        }
+
+        .inconWrap a {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #000;
+            color: white;
+            margin-left: 5px;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="inpWrap">
         <input type="text" class="inp">
         <button class="btn1">오늘의 할일</button>
+        <button class="btn2">전체삭제</button>
     </div>
 
     <ul class="viewData">
         
-        
     </ul>
+    
     <script>
-        let listData = [
-            {
-                todo:"오늘할일 1",
-                done:false,
-            },
-            {
-                todo:"오늘할일 2",
-                done:true,
-            },
-            {
-                todo:"오늘할일 3",
-                done:true,
-            },
-        ];
+        let listData = [];
+        let inp = document.querySelector(".inp")
+        let btn1 = document.querySelector(".btn1")
+        let btn2 = document.querySelector(".btn2")
 
-        const viewData = document.querySelector(".viewData");
-        const inp = document.querySelector(".inp");
-        const btn1 = document.querySelector(".btn1");
+        btn1.addEventListener("click", function () {
+            if (inp.value !== '') {
+                let value = { "todo": inp.value, "done": false }
+                listData.push(value)
+                inp.value = ''
+                console.log(listData)
+                view()
+                Adel()
+            } else {
+                alert('오늘의 할일을 입력하세요.');
+            }
 
-        btn1.addEventListener("click",function(){
-            let value = {"todo":inp.value,"done":false};
-            listData.push(value)
-            view()
         })
 
-        view();
 
-        function view(){
-            todoData = '';
-            listData.forEach(function(item,i){
-                // console.log(item.todo)
-                console.log(listData[i]["todo"]);
+
+
+
+
+
+
+
+
+        function view() {
+            let todoData = ''
+            listData.forEach(function (item, i) {
                 todoData += `<li>`
-                if( item.done == true){
-                    todoData += `    <div class="txt active">${listData[i]["todo"]}</div>`
-                }else{
-                    todoData += `    <div class="txt">${listData[i]["todo"]}</div>`
+                if (item.done == true) {
+                    todoData += `<div class="txt acive" onclick="done(${i})">${item.todo}</div>`
+                } else {
+                    todoData += `<div class="txt" onclick="done(${i})">${item.todo}</div>`
                 }
 
-                todoData += `    <div class="iconWrap">`
-                todoData += `        <a href="#" onclick="">D</a>`
-                todoData += `        <a href="#" onclick="">M</a>`
+                todoData += `<div class="inconWrap">`
+                todoData += `<a href="#" onclick="del(${i})">dell</a>`
 
-                if( item.done == true){  
-                    todoData += `        <a href="#" onclick="">Ca</a>`
-                }else{
-                    todoData += `        <a href="#" onclick="">Do</a>`
+                if (item.done == true) {
+                    todoData += `<a href="#" onclick="done(${i})">off</a>`
+                    
+                } else {
+                    todoData += `<a href="#" onclick="done(${i})">on</a>`
                 }
 
-                todoData += `    </div>`
+                todoData += `</div>`
                 todoData += `</li>`
             });
-            viewData.innerHTML = todoData;
+            document.querySelector(".viewData").innerHTML = todoData
+
+            
+        }
+
+        function Adel(){
+            btn2.addEventListener("click", function () {
+                listData = [];
+                todoData = ''
+                document.querySelector(".viewData").innerHTML = todoData
+
+            })
+        }
+        
+        function del(idx){
+            listData.splice(idx,1);
+
+            // let valueData = JSON.stringify(listData);
+            // localStorage.setItem("todoData",valueData);
+
+            view()
 
         }
 
+        function done(idx){
+            listData[idx].done = !listData[idx].done;
 
+            view()
+        }
 
+       
 
+        
 
     </script>
-    
+
 </body>
+
 </html>
