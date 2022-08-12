@@ -39,91 +39,101 @@
 
     
     <script>
+        listData =[];
 
-        listData = [];
+        let viewData = document.querySelector(".view")
         let inp = document.querySelector(".inp")
         let btn1 = document.querySelector(".btn1")
         let btn2 = document.querySelector(".btn2")
-        let viewData = document.querySelector(".view")
 
+        
         btn1.addEventListener("click",function(){
-            if(inp.value != ""){
-                let value = {"todo":inp.value,"done":false};
-                listData.push(value)
-
-                let valueData = JSON.stringify(listData)
+            if(inp.value !== ''){
+                listData.push({"todo":inp.value,"done":false})
+                valueData = JSON.stringify(listData)
                 localStorage.setItem("todoData",valueData)
-
-                inp.value = ""
-                console.log(value)
-                view();
-  
+                console.log(inp.value)
+                inp.value = ''
+                
             }else{
-                alert("오늘의 할일을 입력하시오.")
+                alert("오늘의 할일을 입력하세요.")
             }
-        })
-
+            view()
+            Adel()
+        });
+        
+      
+        
         function view(){
-            if(localStorage.length>0){
-                let localData =  localStorage.getItem("todoData")
-                listData = JSON.parse(localData)
-            }
-
-
-            let todolist = ""
+            todolist = ""
             listData.forEach(function(item,i){
+
+                if(localStorage.length>0){
+                   localData = localStorage.getItem("todoData")
+                   listData = JSON.parse(localData)
+
+                }
+
                 todolist += `<li>`
                     if(item.done == true){
-                        todolist += `<div class="txt active">${item.todo}</div>`
+
+                        todolist += `<div class = "txt active">${item.todo}</div>`
+
                     }else{
-                        todolist += `<div class="txt">${item.todo}</div>`
+
+                        todolist += `<div class = "txt">${item.todo}</div>`
+
                     }
-               
-                todolist += `<div class="icon">`
-                todolist += `<a href="#"onclick = del(${i})>del</a>`
-                if(item.done == true){
-                    todolist += `<a href="#"onclick = done(${i})>off</a>`
-                }else{
-                    todolist += `<a href="#"onclick = done(${i})>on</a>`
-                }
+                    
+                    todolist += `<div class="icon">`
+                    todolist += `<a href="#"onclick = del(${i})>del</a>`
+
+                    if(item.done == true){
+
+                        todolist += `<a href="#"onclick = done(${i})>off</a>`
+
+                    }else{
+
+                        todolist += `<a href="#"onclick = done(${i})>on</a> `
+
+                    }
+                
                 todolist += `</div>`
                 todolist += `</li>`
-                viewData.innerHTML = todolist;
-                Adel()
             })
-        }
+            viewData.innerHTML = todolist
 
-        function Adel(){
-            btn2.addEventListener("click",function(){
+        };
+
+        function Adel() {
+            btn2.addEventListener("click", function () {
                 listData = [];
-                todolist = ""
-
-                let valueData = JSON.stringify(listData);
-                localStorage.setItem("todoData",valueData);
-                
-                viewData.innerHTML = todolist;
-                
-                
+                valueData = JSON.stringify(listData)
+                localStorage.setItem("todoData",valueData)  
+        
+                view()
             })
-        }
-
+        };
+      
         function del(idx){
             listData.splice(idx,1)
+            valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
 
-            let valueData = JSON.stringify(listData);
-            localStorage.setItem("todoData",valueData);
             view()
         }
 
         function done(idx){
             listData[idx].done = !listData[idx].done
+            valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
 
-            let valueData = JSON.stringify(listData);
-            localStorage.setItem("todoData",valueData);
             view()
+
         }
 
 
+       
     </script>
 </body>
 
