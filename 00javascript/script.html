@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,89 @@
     <title>script</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body>
-    <input type="text"class="inp">
-    <button class="btn1">입력</button>
-    <ul class="listView">
 
-    </ul>
-    <button class="delAll">전체삭제</button>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a:visited,
+    a:link {
+        text-decoration: none;
+    }
+
+    .listView li {
+        width: 400px;
+        height: 50px;
+        border: 1px solid #000;
+        padding: 0 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .listView li.active {
+        background-color: aquamarine;
+    }
+
+    .txt {
+        line-height: 50px;
+    }
+
+    .icon {
+        line-height: 50px;
+        display: flex;
+    }
+
+    .icon a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: #000;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        margin-left: 5px;
+    }
+</style>
+
+<body>
 
 
     <script>
-        let listData = [];
+        'use strict';
+        
+        function add(name, n) {
+            document.write(name + " 학생이    1부터    " + n + "까지   덧셈   수행<br>");
+            let sum = 0;
+            console.log("1")
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            return sum;
+            
+        }
+        // console.log(add())
+        // add('홍길동',10)
+        console.log("3")
+        document.write("결과 : "+ add('홍길동', 10));
+        // document.write(add("홍길동",10));
 
-        const inp = document.querySelector(".inp")
-        const btn1 = document.querySelector(".btn1")
-        const listView = document.querySelector(".listView")
-        const delAll = document.querySelector(".delAll")
+        
 
-        btn1.addEventListener("click",function(){
-            listData.push(inp.value);
-            console.log(listData)
-        })
+        
+
+        // console.log("Hello World")
+        
     </script>
 
 </body>
+
 </html>
