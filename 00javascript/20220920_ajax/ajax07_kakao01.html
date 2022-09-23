@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang='ko'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>ajax07_kakao</title>
+    <link rel='stylesheet' href='../css/reset.css'>
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    .search {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search .inp-search {
+            flex: 1 0 auto;
+            padding: 10px;
+        }
+
+        .search .btnIcon {
+            width: 30px;
+            height: 30px;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            cursor: pointer;
+        }
+</style>
+<body>
+    <div class="search">
+        <input type="text" class="inp-search" placeholder="search">
+        <div class="btnIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+    </div>
+    <ul class="list">
+        
+    </ul>
+   <script>
+    function search(loc){
+        axios
+        .get(
+            "https://dapi.kakao.com/v2/search/web?query="+loc+"&sort=recency&size=10",
+            {
+                headers:{Authorization: "KakaoAK ebce298ef67165fa7b94c57b15269434"}
+            }
+        )
+        .then(onResult)
+        .catch(onError);
+    }
+     
+
+search("이효리")
+    function onResult(v){
+        console.log(v.data.documents)
+        let data = v.data.documents
+        // let content = v.data.documents.content
+        // let datetime = v.data.documents.datetime
+        // let title = v.data.documents.title
+        // let url = v.data.documents.title
+        let list = "";
+        for(let i=0;i<v.data.documents.length;i++){
+            list += "<li>"+"<h2>"+"<a href="+data[i].url +">"+ data[i].title +"</a>"+"</h2>"+"</li>"+"<br>"
+        }
+        $(".list").html(list)
+    }
+    // console.log($(".inp-search").val())
+    // $(".btnIcon").click(function(e){
+        
+    //     let value= $(".inp-search").val()
+    //     if(value == ""){
+    //         alert("검색어를 입력하세요")
+    //     }else{
+    //         search(value)
+    //         value = ""
+    //         $(".inp-search").val("").focus
+    //     }
+    // })
+    // $(".inp-search").keyup(function (e) {
+    //         if (e.key == "Enter") {
+    //             console.log("enter ok");
+    //             let value = $(".inp-search").val();
+
+    //             if (value == "") {
+    //                 alert("지역을 입력하세요")
+    //             } else {
+    //                 wSearch(value)
+    //                 $(".inp-search").val("").focus()
+    //             }
+    //         }
+    //     })
+    
+    function onError(error){
+        console.log("error")
+    }    
+   </script>
+
+</body>
+
+</html>
